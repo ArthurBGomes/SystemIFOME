@@ -19,12 +19,13 @@ def gerar_id(produtos):
     return produtos[-1]["id"] + 1
 
 
-def criar_produto(nome, preco):
+def criar_produto(nome, preco, observacao):
     produtos = carregar()
     produto = {
         "id": gerar_id(produtos),
         "nome": nome,
-        "preco": preco
+        "preco": preco,
+        "observacao": observacao
     }
     produtos.append(produto)
     salvar(produtos)

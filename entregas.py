@@ -66,3 +66,18 @@ def deletar_entrega(id_entrega):
     entregas = carregar()
     entregas = [e for e in entregas if e["id"] != id_entrega]
     salvar(entregas)
+
+
+def visualizar_status(id_entrega):
+    entregas = carregar()
+    for e in entregas:
+        if e["id"] == id_entrega:
+            print(f"\nEntrega #{e['id']}")
+            print(f"Nome: {e['nome']}")
+            print(f"Localização: {e['localizacao']}")
+            print(f"Status: {e['status']}")
+            print("Produtos:")
+            for p in e["produtos"]:
+                print(f"  Produto {p['id_produto']} | Qtd: {p['quantidade']}")
+            return
+    print("Entrega não encontrada.")

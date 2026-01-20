@@ -11,7 +11,6 @@ def menu():
     print("4 - Deletar pedido")
     print("0 - Sair")
 
-
 while True:
     menu()
     opcao = input("Escolha: ")
@@ -37,9 +36,11 @@ while True:
             except ValueError:
                 print("Quantidade inválida. Digite um número.")
                 continue
+            observacao = input("Observação do produto (opcional): ")
             lista_produtos.append({
                 "id_produto": id_produto,
-                "quantidade": qtd
+                "quantidade": qtd,
+                "observacao": observacao
             })
         if lista_produtos:
             entregas.criar_entrega(nome, localizacao, lista_produtos)
@@ -48,12 +49,18 @@ while True:
         print("Id do pedido: ", entregas.gerar_id(entregas.carregar()) - 1)
 
     elif opcao == "3":
-        id_entrega = int(input("ID da entrega: "))
-        entregas.visualizar_status(id_entrega)
+        try:
+            id_entrega = int(input("ID da entrega: "))
+            entregas.visualizar_status(id_entrega)
+        except ValueError:
+            print("ID inválido. Digite um número.")
     
     elif opcao == "4":
-        id_entrega = int(input("ID da entrega: "))
-        entregas.deletar_entrega(id_entrega)
+        try:
+            id_entrega = int(input("ID da entrega: "))
+            entregas.deletar_entrega(id_entrega)
+        except ValueError:
+            print("ID inválido. Digite um número.")
 
     elif opcao == "0":
         print("Saindo...")

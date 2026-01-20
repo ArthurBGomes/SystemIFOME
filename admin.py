@@ -59,7 +59,7 @@ while True:
 
     elif opcao == "7":
         id_entrega = int(input("ID da entrega: "))
-        print("Status: Pendente | Em rota | Entregue")
+        print("Status: Pendente | Em preparo | Em rota | Entregue")
         status = input("Novo status: ")
         entregas.atualizar_status(id_entrega, status)
 
