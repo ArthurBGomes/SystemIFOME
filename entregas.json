@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "id": 1,
+        "nome": "Caio",
+        "localizacao": "Minha Casa",
+        "produtos": [
+            {
+                "id_produto": 1,
+                "quantidade": 1
+            }
+        ],
+        "status": "Pendente"
+    }
+]

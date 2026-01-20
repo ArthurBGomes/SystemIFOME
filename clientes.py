@@ -14,9 +14,9 @@ def salvar(dados):
 
 
 def gerar_id(clientes):
-    if not clientes:
-        return 1
-    return clientes[-1]["id"] + 1
+    if not clientes: #Verifica se há clientes na lista
+        return 1 #Caso não houver, retorna 1
+    return clientes[-1]["id"] + 1 #Caso contrário, retorna o último ID + 1
 
 
 def criar_cliente(nome, endereco):
