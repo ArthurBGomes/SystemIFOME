@@ -4,13 +4,13 @@ ARQUIVO = "clientes.json"
 
 
 def carregar():
-    with open(ARQUIVO, "r", encoding="utf-8") as f:
-        return json.load(f)
+    with open(ARQUIVO, "r", encoding="utf-8") as f: #Abre o arquivo e armazena em f
+        return json.load(f) #Ele carrega os dados armazenados em f
 
 
 def salvar(dados):
-    with open(ARQUIVO, "w", encoding="utf-8") as f:
-        json.dump(dados, f, indent=4, ensure_ascii=False)
+    with open(ARQUIVO, "w", encoding="utf-8") as f: #Abre o arquivo e armazena em f
+        json.dump(dados, f, indent=4, ensure_ascii=False) #Ele salva o obj. dados em f, com uma identação com 4 espaços
 
 
 def gerar_id(clientes):
@@ -20,28 +20,28 @@ def gerar_id(clientes):
 
 
 def criar_cliente(nome, endereco):
-    clientes = carregar()
-    cliente = {
-        "id": gerar_id(clientes),
-        "nome": nome,
-        "endereco": endereco
+    clientes = carregar() #carrega o arquivo
+    cliente = { #Gera o dicionário com as informações
+        "id": gerar_id(clientes), # Gera o id
+        "nome": nome, # Pede o nome
+        "endereco": endereco # Pede o endereço
     }
-    clientes.append(cliente)
-    salvar(clientes)
+    clientes.append(cliente) # Adiciona cliente a clientes
+    salvar(clientes) # Salva os dados
 
 
 def listar_clientes():
-    clientes = carregar()
-    for c in clientes:
-        print(f'{c["id"]} - {c["nome"]} | {c["endereco"]}')
+    clientes = carregar() # Carrega o arquivo
+    for c in clientes: # Adiciona cada elemento de clientes em c
+        print(f'{c["id"]} - {c["nome"]} | {c["endereco"]}') # Printa cada elemento
 
 
 def atualizar_cliente(id_cliente, novo_nome, novo_endereco):
-    clientes = carregar()
-    for c in clientes:
-        if c["id"] == id_cliente:
-            c["nome"] = novo_nome
-            c["endereco"] = novo_endereco
+    clientes = carregar() # Carrega o arquivo
+    for c in clientes: # Armazena cada elemento de clientes em c
+        if c["id"] == id_cliente: # Certifica o id
+            c["nome"] = novo_nome # Muda o nome
+            c["endereco"] = novo_endereco # Muda o endereço
             salvar(clientes)
             return
     print("Cliente não encontrado.")
