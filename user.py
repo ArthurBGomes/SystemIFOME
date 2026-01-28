@@ -43,7 +43,7 @@ while True:
                 "observacao": observacao
             })
         if lista_produtos:
-            entregas.criar_entrega(nome, localizacao, lista_produtos)
+            entregas.criar_entrega(nome, localizacao, observacao, lista_produtos)
         else:
             print("Nenhum produto adicionado.")
         print("Id do pedido: ", entregas.gerar_id(entregas.carregar()) - 1)

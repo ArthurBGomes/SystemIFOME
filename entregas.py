@@ -19,7 +19,7 @@ def gerar_id(entregas):
     return entregas[-1]["id"] + 1
 
 
-def criar_entrega(nome, localizacao, produtos):
+def criar_entrega(nome, localizacao, produtos, observacao):
     """
     produtos = lista de dicionários:
     [
@@ -34,6 +34,7 @@ def criar_entrega(nome, localizacao, produtos):
         "nome": nome,
         "localizacao": localizacao,
         "produtos": produtos,
+        "observacao": observacao,
         "status": "Pendente"
     }
 
