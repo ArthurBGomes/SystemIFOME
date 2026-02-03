@@ -33,9 +33,9 @@ def criar_entrega(nome, localizacao, produtos, observacao):
         "id": gerar_id(entregas),
         "nome": nome,
         "localizacao": localizacao,
+        "status": "Pendente",
         "produtos": produtos,
         "observacao": observacao,
-        "status": "Pendente"
     }
 
     entregas.append(entrega)
@@ -69,7 +69,7 @@ def deletar_entrega(id_entrega):
     salvar(entregas)
 
 
-def visualizar_status(id_entrega):
+def visualizar_status(id_entrega, id_produto=None):
     entregas = carregar()
     for e in entregas:
         if e["id"] == id_entrega:
