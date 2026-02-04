@@ -42,9 +42,9 @@ def atualizar_cliente(id_cliente, novo_nome, novo_endereco):
         if c["id"] == id_cliente: # Certifica o id
             c["nome"] = novo_nome # Muda o nome
             c["endereco"] = novo_endereco # Muda o endereço
-            salvar(clientes)
-            return
-    print("Cliente não encontrado.")
+            salvar(clientes) # Salva a modificação feita
+            return # Retorna nada
+    print("Cliente não encontrado.") # Caso o for não seja satisfeito
 
 
 def deletar_cliente(id_cliente):

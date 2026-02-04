@@ -19,7 +19,7 @@ def gerar_id(entregas):
     return entregas[-1]["id"] + 1
 
 
-def criar_entrega(nome, localizacao, produtos):
+def criar_entrega(nome, localizacao, produtos="", observacao="",id_cliente=""):
     """
     produtos = lista de dicionários:
     [
@@ -31,10 +31,12 @@ def criar_entrega(nome, localizacao, produtos):
 
     entrega = {
         "id": gerar_id(entregas),
+        "id_cliente": id_cliente,
         "nome": nome,
         "localizacao": localizacao,
+        "status": "Pendente",
         "produtos": produtos,
-        "status": "Pendente"
+        "observacao": observacao,
     }
 
     entregas.append(entrega)
@@ -68,7 +70,7 @@ def deletar_entrega(id_entrega):
     salvar(entregas)
 
 
-def visualizar_status(id_entrega):
+def visualizar_status(id_entrega, id_produto=None):
     entregas = carregar()
     for e in entregas:
         if e["id"] == id_entrega:
