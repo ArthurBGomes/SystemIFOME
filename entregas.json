@@ -1,15 +1,12 @@
 [
     {
         "id": 1,
-        "nome": 1,
+        "id_cliente": "",
+        "nome": 2,
         "localizacao": [
             {
-                "id_produto": 100,
-                "quantidade": 2
-            },
-            {
-                "id_produto": 2,
-                "quantidade": 100
+                "id_produto": 1,
+                "quantidade": 1
             }
         ],
         "status": "Pendente",
