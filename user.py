@@ -38,17 +38,16 @@ if __name__ == "__main__":
                 except ValueError:
                     print("Quantidade inválida. Digite um número.")
                     continue
-                observacao = input("Observação do produto (opcional): ")
                 lista_produtos.append({
                     "id_produto": id_produto,
-                    "quantidade": qtd,
-                    "observacao": observacao
+                    "quantidade": qtd
                 })
+            observacao = input("Observação geral do pedido (opcional): ")
             if lista_produtos:
-                entregas.criar_entrega(nome, localizacao, lista_produtos, observacao)
+                entregas.criar_entrega("", nome, localizacao, lista_produtos, observacao)
+                print("Id do pedido: ", entregas.gerar_id(entregas.carregar()) - 1)
             else:
                 print("Nenhum produto adicionado.")
-            print("Id do pedido: ", entregas.gerar_id(entregas.carregar()) - 1)
 
         elif opcao == "3":
             try:

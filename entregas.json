@@ -2,15 +2,29 @@
     {
         "id": 1,
         "id_cliente": "",
-        "nome": 2,
-        "localizacao": [
+        "nome": "Caio",
+        "localizacao": "SGA",
+        "status": "Pendente",
+        "produtos": [
             {
                 "id_produto": 1,
                 "quantidade": 1
             }
         ],
-        "status": "Pendente",
-        "produtos": "",
-        "observacao": ""
+        "observacao": "sem cebola"
+    },
+    {
+        "id": 2,
+        "id_cliente": "",
+        "nome": "Caião",
+        "localizacao": "SGA",
+        "status": "Em rota",
+        "produtos": [
+            {
+                "id_produto": 1,
+                "quantidade": 1
+            }
+        ],
+        "observacao": "Sem cebola"
     }
 ]

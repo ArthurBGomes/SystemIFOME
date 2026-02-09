@@ -49,5 +49,16 @@ def atualizar_produto(id_produto, novo_nome, novo_preco):
 
 def deletar_produto(id_produto):
     produtos = carregar()
-    produtos = [p for p in produtos if p["id"] != id_produto]
-    salvar(produtos)
+    try:
+        id_produto = int(id_produto)
+    except ValueError:
+        print("ID inválido. Digite um número.")
+        return
+    
+    # Remove o produto com o ID especificado
+    produtos_atualizados = []
+    for p in produtos:
+        if p["id"] != id_produto:
+            produtos_atualizados.append(p)
+    
+    salvar(produtos_atualizados)

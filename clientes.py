@@ -49,5 +49,11 @@ def atualizar_cliente(id_cliente, novo_nome, novo_endereco):
 
 def deletar_cliente(id_cliente):
     clientes = carregar()
-    clientes = [c for c in clientes if c["id"] != id_cliente]
-    salvar(clientes)
+    
+    # Remove o cliente com o ID especificado
+    clientes_atualizados = []
+    for c in clientes:
+        if c["id"] != id_cliente:
+            clientes_atualizados.append(c)
+    
+    salvar(clientes_atualizados)

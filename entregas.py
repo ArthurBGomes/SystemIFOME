@@ -19,7 +19,7 @@ def gerar_id(entregas):
     return entregas[-1]["id"] + 1
 
 
-def criar_entrega(nome, localizacao, produtos="", observacao="",id_cliente=""):
+def criar_entrega(id_cliente, nome, localizacao, produtos=None, observacao=""):
     """
     produtos = lista de dicionários:
     [
@@ -27,6 +27,9 @@ def criar_entrega(nome, localizacao, produtos="", observacao="",id_cliente=""):
         {"id_produto": 3, "quantidade": 1}
     ]
     """
+    if produtos is None:
+        produtos = []
+    
     entregas = carregar()
 
     entrega = {
@@ -66,8 +69,14 @@ def atualizar_status(id_entrega, novo_status):
 
 def deletar_entrega(id_entrega):
     entregas = carregar()
-    entregas = [e for e in entregas if e["id"] != id_entrega]
-    salvar(entregas)
+    
+    # Remove a entrega com o ID especificado
+    entregas_atualizadas = []
+    for e in entregas:
+        if e["id"] != id_entrega:
+            entregas_atualizadas.append(e)
+    
+    salvar(entregas_atualizadas)
 
 
 def visualizar_status(id_entrega, id_produto=None):
