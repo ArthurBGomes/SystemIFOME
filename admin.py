@@ -145,6 +145,7 @@ while True:
             print("ID inválido. Digite um número.")
 
     elif opcao == "12":
+        entregas.listar_entregas()
         try:
             id_entrega = int(input("ID da entrega: "))
             sucesso, mensagem = entregas.deletar_entrega(id_entrega)

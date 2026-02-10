@@ -48,13 +48,21 @@ def criar_entrega(id_cliente, nome, localizacao, produtos=None, observacao=""):
 
 def listar_entregas():
     entregas = carregar()
+    if not entregas:
+        print("Nenhuma entrega cadastrada.")
+        return
     for e in entregas:
-        print(f"\nEntrega #{e['id']}")
+        print(f"\n{'='*50}")
+        print(f"ID: {e['id']} | Status: {e['status']}")
         print(f"Cliente ID: {e['id_cliente']}")
-        print(f"Status: {e['status']}")
+        print(f"Nome: {e['nome']}")
+        print(f"Localização: {e['localizacao']}")
+        if e['observacao']:
+            print(f"Observação: {e['observacao']}")
         print("Produtos:")
         for p in e["produtos"]:
             print(f"  Produto {p['id_produto']} | Qtd: {p['quantidade']}")
+        print(f"{'='*50}")
 
 
 def atualizar_status(id_entrega, novo_status):

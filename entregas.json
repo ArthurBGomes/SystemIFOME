@@ -1,19 +1,5 @@
 [
     {
-        "id": 1,
-        "id_cliente": "",
-        "nome": "Caio",
-        "localizacao": "SGA",
-        "status": "Pendente",
-        "produtos": [
-            {
-                "id_produto": 1,
-                "quantidade": 1
-            }
-        ],
-        "observacao": "sem cebola"
-    },
-    {
         "id": 2,
         "id_cliente": "",
         "nome": "Caião",
@@ -76,5 +62,23 @@
             }
         ],
         "observacao": "Hambúrguer sem cebola"
+    },
+    {
+        "id": 6,
+        "id_cliente": "",
+        "nome": "lobin",
+        "localizacao": "sga",
+        "status": "Pendente",
+        "produtos": [
+            {
+                "id_produto": 2,
+                "quantidade": 1
+            },
+            {
+                "id_produto": 3,
+                "quantidade": 1
+            }
+        ],
+        "observacao": ""
     }
 ]
