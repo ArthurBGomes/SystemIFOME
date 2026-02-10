@@ -63,8 +63,8 @@ def atualizar_status(id_entrega, novo_status):
         if e["id"] == id_entrega:
             e["status"] = novo_status
             salvar(entregas)
-            return
-    print("Entrega não encontrada.")
+            return True, "Status atualizado com sucesso"
+    return False, "Entrega não encontrada"
 
 
 def deletar_entrega(id_entrega):
@@ -72,11 +72,17 @@ def deletar_entrega(id_entrega):
     
     # Remove a entrega com o ID especificado
     entregas_atualizadas = []
+    entrega_encontrada = False
     for e in entregas:
         if e["id"] != id_entrega:
             entregas_atualizadas.append(e)
+        else:
+            entrega_encontrada = True
     
-    salvar(entregas_atualizadas)
+    if entrega_encontrada:
+        salvar(entregas_atualizadas)
+        return True, "Entrega deletada com sucesso"
+    return False, "Entrega não encontrada"
 
 
 def visualizar_status(id_entrega, id_produto=None):

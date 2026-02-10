@@ -45,7 +45,9 @@ if __name__ == "__main__":
             observacao = input("Observação geral do pedido (opcional): ")
             if lista_produtos:
                 entregas.criar_entrega("", nome, localizacao, lista_produtos, observacao)
-                print("Id do pedido: ", entregas.gerar_id(entregas.carregar()) - 1)
+                todas_entregas = entregas.carregar()
+                id_pedido = todas_entregas[-1]["id"]  # Pega o ID da última entrega criada
+                print(f"Id do pedido: {id_pedido}")
             else:
                 print("Nenhum produto adicionado.")
 

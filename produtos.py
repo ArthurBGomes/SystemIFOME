@@ -36,29 +36,37 @@ def listar_produtos():
         print(f'{p["id"]} - {p["nome"]} | R$ {p["preco"]:.2f}')
 
 
-def atualizar_produto(id_produto, novo_nome, novo_preco):
+def atualizar_produto(id_produto, novo_nome=None, novo_preco=None):
     produtos = carregar()
+    
+    # Verifica se pelo menos um campo foi fornecido
+    if novo_nome is None and novo_preco is None:
+        return False, "Nenhum campo para atualizar"
+    
     for p in produtos:
         if p["id"] == id_produto:
-            p["nome"] = novo_nome
-            p["preco"] = novo_preco
+            if novo_nome is not None and novo_nome.strip() != "":
+                p["nome"] = novo_nome
+            if novo_preco is not None and novo_preco > 0:
+                p["preco"] = novo_preco
             salvar(produtos)
-            return
-    print("Produto não encontrado.")
+            return True, p
+    return False, "Produto não encontrado"
 
 
 def deletar_produto(id_produto):
     produtos = carregar()
-    try:
-        id_produto = int(id_produto)
-    except ValueError:
-        print("ID inválido. Digite um número.")
-        return
     
     # Remove o produto com o ID especificado
     produtos_atualizados = []
+    produto_encontrado = False
     for p in produtos:
         if p["id"] != id_produto:
             produtos_atualizados.append(p)
+        else:
+            produto_encontrado = True
     
-    salvar(produtos_atualizados)
+    if produto_encontrado:
+        salvar(produtos_atualizados)
+        return True, "Produto deletado com sucesso"
+    return False, "Produto não encontrado"
