@@ -135,6 +135,7 @@ while True:
         entregas.listar_entregas()
 
     elif opcao == "11":
+        entregas.listar_entregas()
         try:
             id_entrega = int(input("ID da entrega: "))
             print("Status: Pendente | Em preparo | Em rota | Entregue")
