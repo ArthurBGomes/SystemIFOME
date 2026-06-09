@@ -1,6 +1,6 @@
-import clientes
-import produtos
-import entregas
+import src.models.clientes as clientes
+import src.models.produtos as produtos
+import src.models.entregas as entregas
 
 
 def menu():
